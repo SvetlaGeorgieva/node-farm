@@ -27,8 +27,9 @@ const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
 // Slugify
-// Used to create the last part of the url identifiers for every product page. Example: Fresh Avocados -> 'fresh-avocados'
+// We can use the slugs to create the last part of the url identifiers for every product page. Example: Fresh Avocados -> 'fresh-avocados'. Not done for now
 const slugs = dataObj.map((el) => slugify(el.productName, { lower: true }));
+console.log(slugs);
 
 // Create the server; handle routing
 const server = http.createServer((req, res) => {
